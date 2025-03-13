@@ -36,20 +36,37 @@ const chordData: ChordsLibrary = {
     ],
   },
   F: {
-    name: "F major",
+    name: "F major (barre chord)",
     fingers: [
-      { string: 6, fret: 1, finger: 1 }, // barre
+      { string: 6, fret: 1, finger: 1 }, // barre with index finger
       { string: 5, fret: 3, finger: 3 },
       { string: 4, fret: 3, finger: 4 },
       { string: 3, fret: 2, finger: 2 },
-      { string: 2, fret: 1, finger: 1 }, // barre
-      { string: 1, fret: 1, finger: 1 }, // barre
+      { string: 2, fret: 1, finger: 1 }, // part of the barre
+      { string: 1, fret: 1, finger: 1 }, // part of the barre
     ],
     difficulty: "Intermediate",
     tips: [
-      "This is a barre chord - use your index finger across all strings",
-      "Press firmly with your index finger",
-      "Beginners can play simplified version: XX3211",
+      "This is a barre chord - lay your index finger flat across all strings at fret 1",
+      "It takes practice to get a clean sound - don't get discouraged!",
+      "Beginners: try the Fmaj7 chord instead (see below)",
+    ],
+  },
+  Fmaj7: {
+    name: "F major 7 (easier F)",
+    fingers: [
+      { string: 6, fret: -1, finger: null }, // muted
+      { string: 5, fret: -1, finger: null }, // muted
+      { string: 4, fret: 3, finger: 3 },
+      { string: 3, fret: 2, finger: 2 },
+      { string: 2, fret: 1, finger: 1 },
+      { string: 1, fret: 0, finger: null },
+    ],
+    difficulty: "Beginner",
+    tips: [
+      "This is a beginner-friendly version of F - only 3 fingers needed",
+      "Don't play the two thickest strings (mute them)",
+      "Technically Fmaj7, but works as a substitute for F in most songs",
     ],
   },
   C: {

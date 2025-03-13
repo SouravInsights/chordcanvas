@@ -31,9 +31,18 @@ const ChordDiagram: React.FC<ChordDiagramProps> = ({ chord }) => {
                         f.string === 6 - stringIndex && f.fret === index + 1
                     ) && (
                       <div
-                        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
+                        className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
                                      w-8 h-8 rounded-full bg-indigo-600 shadow-lg 
-                                     flex items-center justify-center text-white font-bold"
+                                     flex items-center justify-center text-white font-bold
+                                     ${
+                                       chord.fingers.find(
+                                         (f: Finger) =>
+                                           f.string === 6 - stringIndex &&
+                                           f.fret === index + 1
+                                       )?.finger === 1
+                                         ? "ring-2 ring-yellow-300"
+                                         : ""
+                                     }`}
                       >
                         {
                           chord.fingers.find(
@@ -83,7 +92,7 @@ const ChordDiagram: React.FC<ChordDiagramProps> = ({ chord }) => {
         {/* Hand finger reference */}
         <div className="absolute -right-12 top-1/3 text-xs text-gray-600">
           <div className="flex flex-col items-center">
-            <div className="bg-indigo-600 w-6 h-6 rounded-full text-white flex items-center justify-center mb-1">
+            <div className="bg-indigo-600 w-6 h-6 rounded-full text-white flex items-center justify-center mb-1 ring-2 ring-yellow-300">
               1
             </div>
             <div className="text-xs">Index</div>
@@ -101,6 +110,16 @@ const ChordDiagram: React.FC<ChordDiagramProps> = ({ chord }) => {
             <div className="text-xs">Pinky</div>
           </div>
         </div>
+
+        {/* Barre chord indicator - only shown for barre chords */}
+        {chord.fingers.filter((f) => f.finger === 1).length > 1 && (
+          <div className="absolute -left-36 top-1/3 bg-yellow-100 p-2 rounded-lg border border-yellow-300 text-xs w-32 text-center">
+            <p className="font-bold text-yellow-700">Barre Chord</p>
+            <p className="text-gray-600 mt-1">
+              Index finger (1) presses multiple strings at once
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
