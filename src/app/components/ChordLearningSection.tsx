@@ -27,7 +27,11 @@ const ChordLearningSection: React.FC<ChordLearningSectionProps> = ({
 
       {/* Chord Navigation */}
       <div className="flex justify-between items-center mb-6">
-        <button onClick={prevChord} className="p-2 bg-gray-100 rounded-lg">
+        <button
+          onClick={prevChord}
+          className="p-2 bg-indigo-100 text-indigo-600 border border-indigo-200 rounded-lg hover:bg-indigo-200 transition-colors"
+          aria-label="Previous chord"
+        >
           <ArrowLeft size={20} />
         </button>
         <div className="text-center">
@@ -36,7 +40,11 @@ const ChordLearningSection: React.FC<ChordLearningSectionProps> = ({
           </div>
           <div className="text-gray-600 text-sm">{chord.name}</div>
         </div>
-        <button onClick={nextChord} className="p-2 bg-gray-100 rounded-lg">
+        <button
+          onClick={nextChord}
+          className="p-2 bg-indigo-100 text-indigo-600 border border-indigo-200 rounded-lg hover:bg-indigo-200 transition-colors"
+          aria-label="Next chord"
+        >
           <ArrowRight size={20} />
         </button>
       </div>
